@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const { connection } = require("./configs/db");
 const urlRouter = require("./routes/urlRoutes");
 const userRouter = require("./routes/userRoutes");
+const {redirectToLongUrl}=require("./controllers/urlController")
 
 require("dotenv").config();
 
@@ -33,6 +34,7 @@ app.get("/", (req, res) => {
 // Routes
 app.use("/url", urlRouter);
 app.use("/user", userRouter);
+urlRouter.get("/:shortUrl", redirectToLongUrl);
 
 const PORT = process.env.PORT || 8000;
 
