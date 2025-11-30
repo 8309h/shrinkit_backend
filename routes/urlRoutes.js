@@ -26,7 +26,7 @@ urlRouter.get("/my", authenticate, getMyUrls);
 
 urlRouter.delete("/delete/:shortUrl", authenticate, deleteUrl);
 
-// urlRouter.get("/:shortUrl", redirectToLongUrl);
+urlRouter.get("/:shortUrl", redirectToLongUrl);
 
 urlRouter.get("/user/:id", getUrlsByUser);
 
